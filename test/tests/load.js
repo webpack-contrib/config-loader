@@ -1,39 +1,49 @@
-const execa = require('execa');
+const assert = require('power-assert');
+const snapshot = require('snap-shot-it');
+const webpackLog = require('webpack-log');
 
-const types = {
+const formats = {
   'common-js': null,
   es6: 'babel-register',
   flow: 'flow-remove-types/register',
   typescript: 'ts-node/register',
 };
 
-describe('Load', () => {
-  for (const type of Object.keys(types)) {
-    test(`should config of type ${type}`, () => {
-      const args = [
-        './test/runner/load.js',
-        `--cwd=./test/fixtures/formats/${type}`,
-      ];
+webpackLog({
+  name: 'config',
+  id: 'webpack-config-loader',
+  level: 'silent',
+});
 
-      if (types[type]) {
-        args.push(`--require=${types[type]}`);
+const load = require('../../lib/load');
+
+describe('Load', () => {
+  for (const format of Object.keys(formats)) {
+    it(`should config of type ${format}`, () => {
+      const req = formats[format];
+      const argv = {};
+
+      if (req) {
+        argv.require = req;
+
+        if (format === 'es6') {
+          argv.requireOptions = JSON.stringify({
+            extensions: ['.es6'],
+          });
+        }
       }
 
-      const { stdout } = execa.sync('node', args);
+      const result = load(argv, { cwd: `./test/fixtures/formats/${format}` });
 
-      const result = JSON.parse(stdout);
-
-      expect(result.config).toMatchSnapshot();
+      snapshot(result.config);
     });
   }
 
-  // test('should throw error', () => {
-  //   expect(doit).toThrowError();
-  //   expect(doit).toThrowErrorMatchingSnapshot();
-  // });
-  // test('should have errors for every option key', () => {
-  //     expect(errors).toMatchObject(expected);
-  //     expect(err.meta.errors).toMatchSnapshot();
-  //   }
-  // });
+  it('should throw error for config not found', () => {
+    const failure = () => {
+      load({}, { cwd: `./test/fixtures/formats/not-found` });
+    };
+
+    assert.throws(failure);
+  });
 });
