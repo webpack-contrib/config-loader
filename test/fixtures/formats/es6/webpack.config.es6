@@ -1,5 +1,5 @@
 const config = {
-  mode: 'development',
+  mode: 'es6',
 };
 
 export default config;

@@ -1,11 +1,11 @@
-/* eslint-disable */
+// @flow
 
 type Config = {|
   mode: string,
 |};
 
 const config: Config = {
-  mode: 'development',
+  mode: 'flow',
 };
 
-export default config;
+module.exports = config;

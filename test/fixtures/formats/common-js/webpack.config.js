@@ -1,3 +1,3 @@
 module.exports = {
-  test: 'cjs',
+  mode: 'common-js',
 };
