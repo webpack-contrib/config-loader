@@ -6,7 +6,9 @@ const formats = {
   'common-js': null,
   es6: 'babel-register',
   flow: 'flow-remove-types/register',
+  rc: null,
   typescript: 'ts-node/register',
+  yml: null,
 };
 
 webpackLog({
