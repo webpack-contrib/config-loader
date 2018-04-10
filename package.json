@@ -1,6 +1,6 @@
 {
   "name": "@webpack-contrib/config-loader",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A webpack configuration loader",
   "license": "MIT",
   "repository": "webpack-contrib/config-loader",
@@ -10,6 +10,9 @@
   "main": "index.js",
   "engines": {
     "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "commitlint": "commitlint",
