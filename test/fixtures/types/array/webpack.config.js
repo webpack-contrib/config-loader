@@ -1,14 +1,8 @@
 module.exports = [
   {
-    entry: './entry-a',
-    output: {
-      filename: 'entry-a.bundle.js',
-    },
+    entry: 'array',
   },
   {
-    entry: './entry-b',
-    output: {
-      filename: 'entry-b.bundle.js',
-    },
+    entry: 'array-b',
   },
 ];

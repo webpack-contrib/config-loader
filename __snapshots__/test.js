@@ -28,33 +28,53 @@ exports['Load should config of type yml 1'] = {
 
 exports['Resolve should resolve type: array 1'] = [
   {
-    "entry": "./entry-a",
-    "output": {
-      "filename": "entry-a.bundle.js"
-    }
+    "entry": "array"
   },
   {
-    "entry": "./entry-b",
-    "output": {
-      "filename": "entry-b.bundle.js"
-    }
+    "entry": "array-b"
   }
 ]
 
-exports['Resolve should resolve type: function 1'] = [
+exports['Resolve should resolve type: function 1'] = {
+  "entry": "function",
+  "mode": "development"
+}
+
+exports['Resolve should resolve type: function-promise 1'] = {
+  "entry": "function-promise",
+  "mode": "development"
+}
+
+exports['Resolve should resolve type: promise 1'] = {
+  "entry": "promise",
+  "mode": "development"
+}
+
+exports['Full Process should fully load config type: array 1'] = [
   {
-    "mode": "development"
+    "entry": "array"
+  },
+  {
+    "entry": "array-b"
   }
 ]
 
-exports['Resolve should resolve type: function-promise 1'] = [
-  {
-    "mode": "development"
-  }
-]
+exports['Full Process should fully load config type: function 1'] = {
+  "entry": "function",
+  "mode": "development"
+}
 
-exports['Resolve should resolve type: promise 1'] = [
-  {
-    "mode": "development"
-  }
-]
+exports['Full Process should fully load config type: function-promise 1'] = {
+  "entry": "function-promise",
+  "mode": "development"
+}
+
+exports['Full Process should fully load config type: promise 1'] = {
+  "entry": "promise",
+  "mode": "development"
+}
+
+exports['Full Process should fully load a config from abs path 1'] = {
+  "entry": "function-promise",
+  "mode": "development"
+}
