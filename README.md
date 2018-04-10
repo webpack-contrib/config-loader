@@ -152,10 +152,10 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 
 #### [MIT](./LICENSE)
 
-[npm]: https://img.shields.io/npm/v/config-loader.svg
-[npm-url]: https://npmjs.com/package/config-loader
+[npm]: https://img.shields.io/npm/v/@webpack-contrib/config-loader.svg
+[npm-url]: https://npmjs.com/package/@webpack-contrib/config-loader
 
-[node]: https://img.shields.io/node/v/config-loader.svg
+[node]: https://img.shields.io/node/v/@webpack-contrib/config-loader.svg
 [node-url]: https://nodejs.org
 
 [deps]: https://david-dm.org/webpack-contrib/config-loader.svg
