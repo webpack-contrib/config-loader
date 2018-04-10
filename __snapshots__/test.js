@@ -25,3 +25,36 @@ exports['Load should config of type typescript 1'] = {
 exports['Load should config of type yml 1'] = {
   "mode": "yml"
 }
+
+exports['Resolve should resolve type: array 1'] = [
+  {
+    "entry": "./entry-a",
+    "output": {
+      "filename": "entry-a.bundle.js"
+    }
+  },
+  {
+    "entry": "./entry-b",
+    "output": {
+      "filename": "entry-b.bundle.js"
+    }
+  }
+]
+
+exports['Resolve should resolve type: function 1'] = [
+  {
+    "mode": "development"
+  }
+]
+
+exports['Resolve should resolve type: function-promise 1'] = [
+  {
+    "mode": "development"
+  }
+]
+
+exports['Resolve should resolve type: promise 1'] = [
+  {
+    "mode": "development"
+  }
+]
