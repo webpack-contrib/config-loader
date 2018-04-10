@@ -23,19 +23,19 @@ describe('Load', () => {
   for (const format of Object.keys(formats)) {
     it(`should config of type ${format}`, () => {
       const req = formats[format];
-      const argv = {};
+      const options = { cwd: `./test/fixtures/formats/${format}` };
 
       if (req) {
-        argv.require = req;
+        options.require = req;
 
         if (format === 'es6') {
-          argv.requireOptions = JSON.stringify({
+          options.requireOptions = {
             extensions: ['.es6'],
-          });
+          };
         }
       }
 
-      const result = load(argv, { cwd: `./test/fixtures/formats/${format}` });
+      const result = load(options);
 
       snapshot(result.config);
     });

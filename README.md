@@ -22,6 +22,9 @@ in a `package.json`.
 `config-loader` supports configuration modules which export an `Object`, `Array`,
 `Function`, `Promise`, and `Function` which returns a `Promise`.
 
+The module also validates found configurations against webpack's options schema
+to ensure that the configuration is correct before webpack attempts to use it.
+
 ## Requirements
 
 This module requires a minimum of Node v6.9.0 and Webpack v4.0.0.
@@ -68,9 +71,9 @@ parameter. Rather, it makes calls with only the `argv` parameter.
 ## Supported Compilers
 
 This module can support non-standard JavaScript file formats when a compatible
-compiler is registered via a `--require` flag through the CLI. If the flag
-exists, `config-loader` will attempt to require the specified module(s) before
-the target config is found and loaded.
+compiler is registered via the `require` option. If the option is defined,
+`config-loader` will attempt to require the specified module(s) before the
+target config is found and loaded.
 
 As such, `config-loader` will also search for the following file extensions;
 `.js`, `.es6`, `.flow`, `.mjs`, and `.ts`.
@@ -118,6 +121,26 @@ Default: `process.cwd()`
 
 Specifies an filesystem path from which point `config-loader` will begin looking
 for a configuration file.
+
+### `require`
+
+Type: `String`
+Default: `undefined`
+
+Specifies a compiler to use when loading modules from files containing the
+configuration. For example:
+
+```js
+const loader = require('@webpack-contrib/config-loader');
+const options = { require: 'ts-node/register' };
+
+loader(options).then((result) => { ... });
+
+```
+
+See
+[Supported Compilers](https://github.com/webpack-contrib/config-loader#supported-compilers)
+for more information.
 
 ## Contributing
 
