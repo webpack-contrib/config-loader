@@ -7,7 +7,7 @@
   "author": "Andrew Powell <andrew@shellscape.org>",
   "homepage": "https://github.com/webpack-contrib/config-loader",
   "bugs": "https://github.com/webpack-contrib/config-loader/issues",
-  "main": "index.js",
+  "main": "lib/index.js",
   "engines": {
     "node": ">= 6.9.0 <7.0.0 || >= 8.9.0"
   },
