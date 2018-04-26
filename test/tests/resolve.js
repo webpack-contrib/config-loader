@@ -1,7 +1,5 @@
 const path = require('path');
 
-const snapshot = require('snap-shot-it');
-
 const resolve = require('../../lib/resolve');
 
 const types = ['array', 'function', 'function-promise', 'promise'];
@@ -17,7 +15,7 @@ describe('Resolve', () => {
       // eslint-disable-next-line import/no-dynamic-require, global-require
       const config = require(configPath);
       resolve({ config, configPath }, argv).then((result) => {
-        snapshot(result.config);
+        expect(result.config).toMatchSnapshot();
         done();
       });
     });

@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Full Process > should fully load a config from abs path #0 1`] = `
+Object {
+  "entry": "function-promise",
+  "mode": "development",
+}
+`;
+
+exports[`Full Process > should fully load config type: array #0 1`] = `
+Array [
+  Object {
+    "entry": "array",
+  },
+  Object {
+    "entry": "array-b",
+  },
+]
+`;
+
+exports[`Full Process > should fully load config type: function #0 1`] = `
+Object {
+  "entry": "function",
+  "mode": "development",
+}
+`;
+
+exports[`Full Process > should fully load config type: function-promise #0 1`] = `
+Object {
+  "entry": "function-promise",
+  "mode": "development",
+}
+`;
+
+exports[`Full Process > should fully load config type: promise #0 1`] = `
+Object {
+  "entry": "promise",
+  "mode": "development",
+}
+`;
+
+exports[`Load > should config of type common-js #0 1`] = `
+Object {
+  "mode": "common-js",
+}
+`;
+
+exports[`Load > should config of type es6 #0 1`] = `
+Object {
+  "default": Object {
+    "mode": "es6",
+  },
+}
+`;
+
+exports[`Load > should config of type flow #0 1`] = `
+Object {
+  "mode": "flow",
+}
+`;
+
+exports[`Load > should config of type rc #0 1`] = `
+Object {
+  "mode": "rc",
+}
+`;
+
+exports[`Load > should config of type typescript #0 1`] = `
+Object {
+  "default": Object {
+    "mode": "typescript",
+  },
+}
+`;
+
+exports[`Load > should config of type yml #0 1`] = `
+Object {
+  "mode": "yml",
+}
+`;
+
+exports[`Load > should not throw for config not found, but allowed #0 1`] = `
+Object {
+  "config": Object {},
+  "configPath": "",
+}
+`;
+
+exports[`Resolve > should resolve type: array #0 1`] = `
+Array [
+  Object {
+    "entry": "array",
+  },
+  Object {
+    "entry": "array-b",
+  },
+]
+`;
+
+exports[`Resolve > should resolve type: function #0 1`] = `
+Object {
+  "entry": "function",
+  "mode": "development",
+}
+`;
+
+exports[`Resolve > should resolve type: function-promise #0 1`] = `
+Object {
+  "entry": "function-promise",
+  "mode": "development",
+}
+`;
+
+exports[`Resolve > should resolve type: promise #0 1`] = `
+Object {
+  "entry": "promise",
+  "mode": "development",
+}
+`;

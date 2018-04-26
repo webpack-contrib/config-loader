@@ -1,7 +1,5 @@
 const path = require('path');
 
-const snapshot = require('snap-shot-it');
-
 const loader = require('../../lib/index');
 
 const types = ['array', 'function', 'function-promise', 'promise'];
@@ -14,7 +12,7 @@ describe('Full Process', () => {
       const options = { cwd };
 
       loader(options).then((result) => {
-        snapshot(result.config);
+        expect(result.config).toMatchSnapshot();
         done();
       });
     });
@@ -29,7 +27,7 @@ describe('Full Process', () => {
     const options = { configPath };
 
     loader(options).then((result) => {
-      snapshot(result.config);
+      expect(result.config).toMatchSnapshot();
       done();
     });
   });

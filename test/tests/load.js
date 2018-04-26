@@ -1,5 +1,3 @@
-const assert = require('power-assert');
-const snapshot = require('snap-shot-it');
 const webpackLog = require('webpack-log');
 
 const formats = {
@@ -37,7 +35,7 @@ describe('Load', () => {
 
       const result = load(options);
 
-      snapshot(result.config);
+      expect(result.config).toMatchSnapshot();
     });
   }
 
@@ -46,6 +44,15 @@ describe('Load', () => {
       load({}, { cwd: `./test/fixtures/formats/not-found` });
     };
 
-    assert.throws(failure);
+    expect(failure).toThrow();
+  });
+
+  it('should not throw for config not found, but allowed', () => {
+    const result = load({
+      allowZero: true,
+      cwd: `./test/fixtures/formats/not-found`,
+    });
+
+    expect(result).toMatchSnapshot();
   });
 });
