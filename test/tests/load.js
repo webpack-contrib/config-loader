@@ -49,7 +49,7 @@ describe('Load', () => {
 
   it('should not throw for config not found, but allowed', () => {
     const result = load({
-      allowZero: true,
+      allowMissing: true,
       cwd: `./test/fixtures/formats/not-found`,
     });
 
