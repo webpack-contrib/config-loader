@@ -1,3 +1,9 @@
+---
+name: 🐛 Bug Report
+about: Something went awry and you'd like to tell us about it.
+
+---
+
 <!--
   Issues are so 🔥
 
@@ -15,34 +21,6 @@
 * webpack Version:
 * config-loader Version:
 
-<!-- Please place an x (no spaces!) in all [ ] that apply -->
-
-This issue is for a:
-
-- [ ] **bug**
-- [ ] **feature** request
-- [ ] **modification** request
-
-### Code
-
-##### CLI Command
-
-```bash
-  # paste the CLI command you're using. if this isn't applicable, it's safe to remove.
-  $ {the command}
-```
-
-##### webpack.config.js
-
-```js
-  // If your bitchin' code blocks are over 20 lines, please paste a link to a gist
-  // (https://gist.github.com).
-```
-
-```js
-  // additional code, HEY YO remove this block if you don't need it
-```
-
 ### Expected Behavior
 
 <!-- Remove this section if not reporting a bug or modification request. -->
@@ -50,6 +28,18 @@ This issue is for a:
 ### Actual Behavior
 
 <!-- Remove this section if not reporting a bug or modification request. -->
+
+### Code
+
+```js
+  // webpack.config.js
+  // If your bitchin' code blocks are over 20 lines, please paste a link to a gist
+  // (https://gist.github.com).
+```
+
+```js
+  // additional code, HEY YO remove this block if you don't need it
+```
 
 ### How Do We Reproduce?
 
@@ -59,7 +49,3 @@ This issue is for a:
   If your webpack config is over 50 lines long, please provide a URL to a repo
   for your beefy 🍖 app that we can use to reproduce.
 -->
-
-### New Feature Use Case
-
-<!-- Remove this section if not requesting a feature -->
