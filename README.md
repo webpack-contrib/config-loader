@@ -93,7 +93,7 @@ must install it and specify its use by using the `--require` CLI flag._
 
 Returns a `Promise`, which resolves with an `Object` containing:
 
-#### `allowZero`
+#### `allowMissing`
 
 Type: `Boolean`  
 Default: `false`

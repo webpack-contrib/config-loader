@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+
 const webpackLog = require('webpack-log');
 
 const formats = {
@@ -49,10 +51,33 @@ describe('Load', () => {
 
   it('should not throw for config not found, but allowed', () => {
     const result = load({
-      allowZero: true,
+      allowMissing: true,
       cwd: `./test/fixtures/formats/not-found`,
     });
 
     expect(result).toMatchSnapshot();
+  });
+
+  it('should throw error for a bad config', () => {
+    const failure = () => {
+      load({}, { cwd: `./test/fixtures/failures/bad-config` });
+    };
+
+    expect(failure).toThrow();
+  });
+
+  it('should throw error for a bad exact config', () => {
+    const failure = () => {
+      load(
+        {},
+        {
+          configPath: resolve(
+            `./test/fixtures/failures/bad-config/webpack.config.js`
+          ),
+        }
+      );
+    };
+
+    expect(failure).toThrow();
   });
 });

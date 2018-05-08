@@ -7,3 +7,4 @@ require('./snapshot');
 require('./tests/load');
 require('./tests/resolve');
 require('./tests/full');
+require('./tests/errors');
