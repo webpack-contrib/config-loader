@@ -151,6 +151,19 @@ See
 [Supported Compilers](https://github.com/webpack-contrib/config-loader#supported-compilers)
 for more information.
 
+### `schema`
+
+Type: `Object`
+Default: `undefined`
+
+An object containing a valid
+[JSON Schema Definition](http://json-schema.org/latest/json-schema-validation.html).
+
+By default, `config-loader` validates your webpack config against the
+[webpack config schema](https://github.com/webpack/webpack/blob/master/schemas/WebpackOptions.json).
+However, it can be useful to append additional schema data to allow configs,
+which contain properties not present in the webpack schema, to pass validation.
+
 ## Contributing
 
 Please take a moment to read our contributing guidelines if you haven't yet done so.
