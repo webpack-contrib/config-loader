@@ -160,9 +160,9 @@ An object containing a valid
 [JSON Schema Definition](http://json-schema.org/latest/json-schema-validation.html).
 
 By default, `config-loader` validates your webpack config against the
-[webpack config schema](). However, it can be useful to append additional schema
-data to allow configs, which contain properties not present in the webpack schema,
-to pass validation.
+[webpack config schema](https://github.com/webpack/webpack/blob/master/schemas/WebpackOptions.json).
+However, it can be useful to append additional schema data to allow configs,
+which contain properties not present in the webpack schema, to pass validation.
 
 ## Contributing
 
