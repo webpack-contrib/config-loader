@@ -80,20 +80,4 @@ describe('Load', () => {
 
     expect(failure).toThrow();
   });
-
-  it(`should load with schema option`, () => {
-    const result = load({
-      schema: {
-        definitions: {
-          serve: {
-            additionalProperties: true,
-            type: 'object',
-          },
-        },
-      },
-      cwd: `./test/fixtures/types/schema`,
-    });
-
-    expect(result).toMatchSnapshot();
-  });
 });

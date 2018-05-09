@@ -31,4 +31,28 @@ describe('Full Process', () => {
       done();
     });
   });
+
+  it(`should load with schema option`, (done) => {
+    const configPath = path.join(
+      __dirname,
+      `../fixtures/types/schema/webpack.config.js`
+    );
+
+    const options = {
+      configPath,
+      schema: {
+        properties: {
+          serve: {
+            additionalProperties: true,
+            type: 'object',
+          },
+        },
+      },
+    };
+
+    loader(options).then((result) => {
+      expect(result.config).toMatchSnapshot();
+      done();
+    });
+  });
 });
