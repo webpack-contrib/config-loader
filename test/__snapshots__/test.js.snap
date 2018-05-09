@@ -79,6 +79,17 @@ Object {
 }
 `;
 
+exports[`Load > should load with schema option #0 1`] = `
+Object {
+  "config": Object {
+    "entry": "object",
+    "mode": "development",
+    "serve": Object {},
+  },
+  "configPath": "<PROJECT_ROOT>/test/fixtures/types/schema/webpack.config.js",
+}
+`;
+
 exports[`Load > should not throw for config not found, but allowed #0 1`] = `
 Object {
   "config": Object {},
