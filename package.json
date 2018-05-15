@@ -37,11 +37,11 @@
     "index.js"
   ],
   "peerDependencies": {
-    "chalk": "^2.1.0",
     "webpack": "^4.3.0"
   },
   "dependencies": {
     "@webpack-contrib/schema-utils": "^1.0.0-beta.0",
+    "chalk": "^2.1.0",
     "cosmiconfig": "^5.0.2",
     "loud-rejection": "^1.6.0",
     "merge-options": "^1.0.1",
