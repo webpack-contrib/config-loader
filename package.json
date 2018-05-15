@@ -37,7 +37,6 @@
     "index.js"
   ],
   "peerDependencies": {
-    "chalk": "^2.1.0",
     "webpack": "^4.3.0"
   },
   "dependencies": {
