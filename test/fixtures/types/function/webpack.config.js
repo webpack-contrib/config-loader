@@ -1,4 +1,4 @@
-module.exports = (/* env */) => {
+module.exports = (/* argv */) => {
   return {
     entry: 'function',
     mode: 'development',
