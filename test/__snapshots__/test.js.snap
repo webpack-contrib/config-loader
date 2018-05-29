@@ -105,6 +105,20 @@ Object {
 }
 `;
 
+exports[`Resolve > should resolve a function config and parse argv #0 1`] = `
+Object {
+  "entry": "function",
+  "mode": "superman",
+}
+`;
+
+exports[`Resolve > should resolve a function config and pass argv #0 1`] = `
+Object {
+  "entry": "function",
+  "mode": "batman",
+}
+`;
+
 exports[`Resolve > should resolve type: array #0 1`] = `
 Array [
   Object {

@@ -133,10 +133,10 @@ for a configuration file.
 
 ### `require`
 
-Type: `String`
+Type: `String | Array[String]`
 Default: `undefined`
 
-Specifies a compiler to use when loading modules from files containing the
+Specifies compiler(s) to use when loading modules from files containing the
 configuration. For example:
 
 ```js
