@@ -93,15 +93,6 @@ must install it and specify its use by using the `--require` CLI flag._
 
 Returns a `Promise`, which resolves with an `Object` containing:
 
-#### `allowMissing`
-
-Type: `Boolean`  
-Default: `false`
-
-Instructs the module to allow a missing config file, and returns an `Object`
-with empty `config` and `configPath` properties in the event a config file was
-not found.
-
 #### `config`
 
 Type: `Object`
@@ -115,6 +106,15 @@ Type: `String`
 Contains the full, absolute filesystem path to the configuration file.
 
 ## Options
+
+#### `allowMissing`
+
+Type: `Boolean`  
+Default: `false`
+
+Instructs the module to allow a missing config file, and returns an `Object`
+with empty `config` and `configPath` properties in the event a config file was
+not found.
 
 ### `configPath`
 
