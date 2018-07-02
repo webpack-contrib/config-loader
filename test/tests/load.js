@@ -2,6 +2,9 @@ const { resolve } = require('path');
 
 const webpackLog = require('webpack-log');
 
+const LoadConfigError = require('../../lib/LoadConfigError');
+const RequireModuleError = require('../../lib/RequireModuleError');
+
 const formats = {
   'common-js': null,
   es6: 'babel-register',
@@ -43,10 +46,11 @@ describe('Load', () => {
 
   it('should throw error for config not found', () => {
     const failure = () => {
-      load({}, { cwd: `./test/fixtures/formats/not-found` });
+      load({ cwd: `./test/fixtures/formats/not-found` });
     };
 
-    expect(failure).toThrow();
+    expect(failure).toThrowError(LoadConfigError);
+    expect(failure).toThrowErrorMatchingSnapshot();
   });
 
   it('should not throw for config not found, but allowed', () => {
@@ -60,7 +64,7 @@ describe('Load', () => {
 
   it('should throw error for a bad config', () => {
     const failure = () => {
-      load({}, { cwd: `./test/fixtures/failures/bad-config` });
+      load({ cwd: `./test/fixtures/failures/bad-config` });
     };
 
     expect(failure).toThrow();
@@ -68,16 +72,23 @@ describe('Load', () => {
 
   it('should throw error for a bad exact config', () => {
     const failure = () => {
-      load(
-        {},
-        {
-          configPath: resolve(
-            `./test/fixtures/failures/bad-config/webpack.config.js`
-          ),
-        }
-      );
+      load({
+        configPath: resolve(
+          `./test/fixtures/failures/bad-config/webpack.config.js`
+        ),
+      });
     };
 
-    expect(failure).toThrow();
+    expect(failure).toThrowError(LoadConfigError);
+    expect(failure).toThrowErrorMatchingSnapshot();
+  });
+
+  it('should throw error for a bad require', () => {
+    const failure = () => {
+      load({ require: 'batman', cwd: `./test/fixtures/types/object` });
+    };
+
+    expect(failure).toThrowError(RequireModuleError);
+    expect(failure).toThrowErrorMatchingSnapshot();
   });
 });

@@ -1,4 +1,4 @@
-// eslint-disable-next-lines
+// eslint-disable-next-line
 bad();
 
 module.exports = {

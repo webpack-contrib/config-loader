@@ -2,6 +2,7 @@ const {
   addSerializer,
   SnapshotState,
   toMatchSnapshot,
+  toThrowErrorMatchingSnapshot,
 } = require('jest-snapshot');
 const serializer = require('jest-serializer-path');
 const minimist = require('minimist');
@@ -48,7 +49,7 @@ function nameTest(test) {
 function match(received) {
   const { file } = current;
   const snapshotState = new SnapshotState(file, {
-    updateSnapshot: argv.update ? 'all' : 'new',
+    updateSnapshot: argv.update || argv.u ? 'all' : 'new',
   });
   const matcher = toMatchSnapshot.bind({
     snapshotState,
@@ -62,6 +63,26 @@ function match(received) {
   return result;
 }
 
+function matchError(received) {
+  const { file } = current;
+  const snapshotState = new SnapshotState(file, {
+    updateSnapshot: argv.update ? 'all' : 'new',
+  });
+  const matcher = toThrowErrorMatchingSnapshot.bind({
+    snapshotState,
+    currentTestName: nameTest(current),
+  });
+
+  const result = matcher(received);
+
+  snapshotState.save();
+
+  return result;
+}
+
 addSerializer(serializer);
 
-expect.extend({ toMatchSnapshot: match });
+expect.extend({
+  toMatchSnapshot: match,
+  toThrowErrorMatchingSnapshot: matchError,
+});
