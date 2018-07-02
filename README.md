@@ -85,14 +85,14 @@ The resulting configuration object would resemble:
 }
 ```
 
-The `webpack.config.js` file will be intelligently extended with properties from
-`base.config.js`.
+The `webpack.config.js` file will be intelligently extended with properties
+from `base.config.js`.
 
 The `extends` property also supports naming installed NPM modules which export
 webpack configurations. Various configuration properties can also be filtered in
 different ways based on need.
 
-[Read More about Extending Configuration Files]('./docs/EXTENDS.md');
+[Read More about Extending Configuration Files](./docs/EXTENDS.md)
 
 ## Gotchas
 
