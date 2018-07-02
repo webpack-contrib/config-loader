@@ -19,6 +19,14 @@ describe('extends', () => {
       expect(result).toMatchSnapshot();
     }));
 
+  it(`should extend, use default filters`, () => {
+    configFilters.extends.filters.plugins = 'unknown';
+    configFilters.extends.filters.rules = 'unknown';
+    return extend(configFilters).then((result) => {
+      expect(result).toMatchSnapshot();
+    });
+  });
+
   // TODO: multicompiler
 
   it(`should load full`, () =>
