@@ -150,3 +150,190 @@ Object {
   "mode": "development",
 }
 `;
+
+exports[`extends > should extend #0 1`] = `
+Object {
+  "devtool": "cheap-eval-source-map",
+  "entry": Object {
+    "client": Array [
+      "./base/shared.js",
+      "./app-entry.js",
+    ],
+    "server": "./app-entry.js",
+  },
+  "mode": "production",
+  "module": Object {
+    "noParse": /batman/,
+    "rules": Array [
+      Object {
+        "test": /\\\\\\*\\.json\\$/,
+        "use": Array [
+          Object {
+            "loader": "json-loader",
+          },
+        ],
+      },
+      Object {
+        "resourceQuery": /inline/,
+        "test": /\\.css\\$/,
+        "use": "url-loader",
+      },
+      Object {
+        "test": /\\\\\\.txt\\$/,
+        "use": "raw-loader",
+      },
+      Object {
+        "test": /target-file\\.js\\$/,
+        "use": Array [
+          Object {
+            "loader": "val-loader",
+          },
+        ],
+      },
+    ],
+  },
+  "name": "batman",
+  "output": Object {
+    "filename": "[name].js",
+    "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+  },
+  "plugins": Array [
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"development\\"",
+      },
+    },
+    NamedModulesPlugin {
+      "options": Object {},
+    },
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"production\\"",
+      },
+    },
+  ],
+}
+`;
+
+exports[`extends > should extend, use filters #0 1`] = `
+Object {
+  "devtool": "cheap-eval-source-map",
+  "entry": Object {
+    "client": Array [
+      "./base/shared.js",
+      "./app-entry.js",
+    ],
+    "server": "./app-entry.js",
+  },
+  "mode": "production",
+  "module": Object {
+    "noParse": /aquaman/,
+    "rules": Array [
+      Object {
+        "test": /\\\\\\*\\.json\\$/,
+        "use": Array [
+          Object {
+            "loader": "json-loader",
+          },
+        ],
+      },
+      Object {
+        "resourceQuery": /inline/,
+        "test": /\\.css\\$/,
+        "use": "url-loader",
+      },
+      Object {
+        "test": /\\\\\\.txt\\$/,
+        "use": "raw-loader",
+      },
+      Object {
+        "test": /target-file\\.js\\$/,
+        "use": Array [
+          Object {
+            "loader": "val-loader",
+          },
+        ],
+      },
+    ],
+  },
+  "name": "batman",
+  "output": Object {
+    "filename": "[name].js",
+    "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+  },
+  "plugins": Array [
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"production\\"",
+      },
+    },
+    NamedModulesPlugin {
+      "options": Object {},
+    },
+  ],
+}
+`;
+
+exports[`extends > should load full #0 1`] = `
+Object {
+  "devtool": "cheap-eval-source-map",
+  "entry": Object {
+    "client": Array [
+      "./base/shared.js",
+      "./app-entry.js",
+    ],
+    "server": "./app-entry.js",
+  },
+  "mode": "production",
+  "module": Object {
+    "noParse": /batman/,
+    "rules": Array [
+      Object {
+        "test": /\\\\\\*\\.json\\$/,
+        "use": Array [
+          Object {
+            "loader": "json-loader",
+          },
+        ],
+      },
+      Object {
+        "resourceQuery": /inline/,
+        "test": /\\.css\\$/,
+        "use": "url-loader",
+      },
+      Object {
+        "test": /\\\\\\.txt\\$/,
+        "use": "raw-loader",
+      },
+      Object {
+        "test": /target-file\\.js\\$/,
+        "use": Array [
+          Object {
+            "loader": "val-loader",
+          },
+        ],
+      },
+    ],
+  },
+  "name": "batman",
+  "output": Object {
+    "filename": "[name].js",
+    "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+  },
+  "plugins": Array [
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"development\\"",
+      },
+    },
+    NamedModulesPlugin {
+      "options": Object {},
+    },
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"production\\"",
+      },
+    },
+  ],
+}
+`;

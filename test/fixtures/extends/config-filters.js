@@ -3,14 +3,17 @@ const { join } = require('path');
 const { DefinePlugin } = require('webpack');
 
 module.exports = {
-  extends: join(__dirname, 'config-b.js'),
+  extends: {
+    configs: [join(__dirname, 'config-b.js')],
+    filters: { plugins: 'constructor' },
+  },
   devtool: 'cheap-eval-source-map',
   entry: {
     client: ['./app-entry.js'],
   },
   mode: 'production',
   module: {
-    noParse: /batman/,
+    noParse: /aquaman/,
     rules: [
       {
         test: /target-file.js$/,

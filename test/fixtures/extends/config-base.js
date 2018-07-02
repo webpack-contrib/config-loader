@@ -8,10 +8,7 @@ module.exports = {
   },
   mode: 'development',
   module: {
-    parser: {
-      amd: false,
-      commonjs: true,
-    },
+    noParse: /jquery|lodash/,
     rules: [
       {
         test: /.css$/,
