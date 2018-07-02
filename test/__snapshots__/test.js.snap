@@ -105,6 +105,12 @@ Object {
 }
 `;
 
+exports[`Load > should throw error for a bad exact config #0 1`] = `"ENOENT: no such file or directory, open '<PROJECT_ROOT>/test/fixtures/failures/bad-config/webpack.config.js'"`;
+
+exports[`Load > should throw error for a bad require #0 1`] = `"Cannot find module 'batman' from '<PROJECT_ROOT>'"`;
+
+exports[`Load > should throw error for config not found #0 1`] = `"Unable to load a config from: ./test/fixtures/formats/not-found"`;
+
 exports[`Resolve > should resolve a function config and parse argv #0 1`] = `
 Object {
   "entry": "function",
@@ -215,7 +221,111 @@ Object {
 }
 `;
 
-exports[`extends > should extend, use filters #0 1`] = `
+exports[`extends > should extend MultiCompilers #0 1`] = `
+Array [
+  Object {
+    "devtool": "source-map",
+    "entry": Object {
+      "client": Array [
+        "./base/shared.js",
+      ],
+      "server": "./app-entry.js",
+    },
+    "mode": "development",
+    "module": Object {
+      "noParse": /jquery\\|lodash/,
+      "rules": Array [
+        Object {
+          "test": /\\\\\\*\\.json\\$/,
+          "use": Array [
+            Object {
+              "loader": "json-loader",
+            },
+          ],
+        },
+        Object {
+          "resourceQuery": /inline/,
+          "test": /\\.css\\$/,
+          "use": "url-loader",
+        },
+        Object {
+          "test": /\\\\\\.txt\\$/,
+          "use": "raw-loader",
+        },
+      ],
+    },
+    "name": "client",
+    "output": Object {
+      "filename": "bundle.js",
+      "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+    },
+    "plugins": Array [
+      DefinePlugin {
+        "definitions": Object {
+          "process.env.NODE_ENV": "\\"production\\"",
+        },
+      },
+      NamedModulesPlugin {
+        "options": Object {},
+      },
+    ],
+  },
+  Object {
+    "devtool": "source-map",
+    "entry": Object {
+      "client": Array [
+        "./base/shared.js",
+      ],
+      "server": "./app-entry.js",
+    },
+    "mode": "development",
+    "module": Object {
+      "noParse": /jquery\\|lodash/,
+      "rules": Array [
+        Object {
+          "test": /\\\\\\*\\.json\\$/,
+          "use": Array [
+            Object {
+              "loader": "json-loader",
+            },
+          ],
+        },
+        Object {
+          "resourceQuery": /inline/,
+          "test": /\\.css\\$/,
+          "use": "url-loader",
+        },
+        Object {
+          "test": /\\\\\\.txt\\$/,
+          "use": "raw-loader",
+        },
+      ],
+    },
+    "name": "server",
+    "output": Object {
+      "filename": "bundle.js",
+      "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+    },
+    "plugins": Array [
+      DefinePlugin {
+        "definitions": Object {
+          "process.env.NODE_ENV": "\\"development\\"",
+        },
+      },
+      NamedModulesPlugin {
+        "options": Object {},
+      },
+      DefinePlugin {
+        "definitions": Object {
+          "process.env.NODE_ENV": "\\"production\\"",
+        },
+      },
+    ],
+  },
+]
+`;
+
+exports[`extends > should extend, use default filters #0 1`] = `
 Object {
   "devtool": "cheap-eval-source-map",
   "entry": Object {
@@ -264,6 +374,78 @@ Object {
   "plugins": Array [
     DefinePlugin {
       "definitions": Object {
+        "process.env.NODE_ENV": "\\"development\\"",
+      },
+    },
+    NamedModulesPlugin {
+      "options": Object {},
+    },
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"production\\"",
+      },
+    },
+  ],
+}
+`;
+
+exports[`extends > should extend, use filters #0 1`] = `
+Object {
+  "devtool": "cheap-eval-source-map",
+  "entry": Object {
+    "client": Array [
+      "./base/shared.js",
+      "./app-entry.js",
+    ],
+    "server": "./app-entry.js",
+  },
+  "mode": "production",
+  "module": Object {
+    "noParse": /aquaman/,
+    "rules": Array [
+      Object {
+        "test": /\\\\\\*\\.json\\$/,
+        "use": Array [
+          Object {
+            "loader": "json-loader",
+          },
+        ],
+      },
+      Object {
+        "resourceQuery": /inline/,
+        "test": /\\.css\\$/,
+        "use": "url-loader",
+      },
+      Object {
+        "test": /\\\\\\.txt\\$/,
+        "use": "raw-loader",
+      },
+      Object {
+        "test": /\\\\\\*\\.json\\$/,
+        "use": Array [
+          Object {
+            "loader": "val-loader",
+          },
+        ],
+      },
+      Object {
+        "test": /target-file\\.js\\$/,
+        "use": Array [
+          Object {
+            "loader": "val-loader",
+          },
+        ],
+      },
+    ],
+  },
+  "name": "batman",
+  "output": Object {
+    "filename": "[name].js",
+    "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+  },
+  "plugins": Array [
+    DefinePlugin {
+      "definitions": Object {
         "process.env.NODE_ENV": "\\"production\\"",
       },
     },
@@ -272,6 +454,174 @@ Object {
     },
   ],
 }
+`;
+
+exports[`extends > should extend, use rules:none filter #0 1`] = `
+Object {
+  "devtool": "cheap-eval-source-map",
+  "entry": Object {
+    "client": Array [
+      "./base/shared.js",
+      "./app-entry.js",
+    ],
+    "server": "./app-entry.js",
+  },
+  "mode": "production",
+  "module": Object {
+    "noParse": /aquaman/,
+    "rules": Array [
+      Object {
+        "test": /\\\\\\*\\.json\\$/,
+        "use": Array [
+          Object {
+            "loader": "json-loader",
+          },
+        ],
+      },
+      Object {
+        "resourceQuery": /inline/,
+        "test": /\\.css\\$/,
+        "use": "url-loader",
+      },
+      Object {
+        "test": /\\\\\\.txt\\$/,
+        "use": "raw-loader",
+      },
+      Object {
+        "test": /target-file\\.js\\$/,
+        "use": Array [
+          Object {
+            "loader": "val-loader",
+          },
+        ],
+      },
+    ],
+  },
+  "name": "batman",
+  "output": Object {
+    "filename": "[name].js",
+    "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+  },
+  "plugins": Array [
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"development\\"",
+      },
+    },
+    NamedModulesPlugin {
+      "options": Object {},
+    },
+    DefinePlugin {
+      "definitions": Object {
+        "process.env.NODE_ENV": "\\"production\\"",
+      },
+    },
+  ],
+}
+`;
+
+exports[`extends > should load and extend MultiCompilers #0 1`] = `
+Array [
+  Object {
+    "devtool": "source-map",
+    "entry": Object {
+      "client": Array [
+        "./base/shared.js",
+      ],
+      "server": "./app-entry.js",
+    },
+    "mode": "development",
+    "module": Object {
+      "noParse": /jquery\\|lodash/,
+      "rules": Array [
+        Object {
+          "test": /\\\\\\*\\.json\\$/,
+          "use": Array [
+            Object {
+              "loader": "json-loader",
+            },
+          ],
+        },
+        Object {
+          "resourceQuery": /inline/,
+          "test": /\\.css\\$/,
+          "use": "url-loader",
+        },
+        Object {
+          "test": /\\\\\\.txt\\$/,
+          "use": "raw-loader",
+        },
+      ],
+    },
+    "name": "client",
+    "output": Object {
+      "filename": "bundle.js",
+      "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+    },
+    "plugins": Array [
+      DefinePlugin {
+        "definitions": Object {
+          "process.env.NODE_ENV": "\\"production\\"",
+        },
+      },
+      NamedModulesPlugin {
+        "options": Object {},
+      },
+    ],
+  },
+  Object {
+    "devtool": "source-map",
+    "entry": Object {
+      "client": Array [
+        "./base/shared.js",
+      ],
+      "server": "./app-entry.js",
+    },
+    "mode": "development",
+    "module": Object {
+      "noParse": /jquery\\|lodash/,
+      "rules": Array [
+        Object {
+          "test": /\\\\\\*\\.json\\$/,
+          "use": Array [
+            Object {
+              "loader": "json-loader",
+            },
+          ],
+        },
+        Object {
+          "resourceQuery": /inline/,
+          "test": /\\.css\\$/,
+          "use": "url-loader",
+        },
+        Object {
+          "test": /\\\\\\.txt\\$/,
+          "use": "raw-loader",
+        },
+      ],
+    },
+    "name": "server",
+    "output": Object {
+      "filename": "bundle.js",
+      "path": "<PROJECT_ROOT>/test/fixtures/extends/dist",
+    },
+    "plugins": Array [
+      DefinePlugin {
+        "definitions": Object {
+          "process.env.NODE_ENV": "\\"development\\"",
+        },
+      },
+      NamedModulesPlugin {
+        "options": Object {},
+      },
+      DefinePlugin {
+        "definitions": Object {
+          "process.env.NODE_ENV": "\\"production\\"",
+        },
+      },
+    ],
+  },
+]
 `;
 
 exports[`extends > should load full #0 1`] = `

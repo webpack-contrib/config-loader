@@ -5,7 +5,7 @@ const { DefinePlugin } = require('webpack');
 module.exports = {
   extends: {
     configs: [join(__dirname, 'config-b.js')],
-    filters: { plugins: 'constructor' },
+    filters: { plugins: 'constructor', rules: 'none' },
   },
   devtool: 'cheap-eval-source-map',
   entry: {
