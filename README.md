@@ -55,7 +55,7 @@ loader(options).then((result) => {
 This module supports extending webpack configuration files with
 [ESLint-style](https://eslint.org/docs/user-guide/configuring#extending-configuration-files)
 `extends` functionality. This feature allows users to create a "base" config and
-in essence, "inherit" from that base config in a separate config. A simple
+in essence, "inherit" from that base config in a separate config. A bare-bones
 example:
 
 ```js
@@ -72,7 +72,6 @@ module.exports = {
 module.exports = {
   extends: path.join(..., 'base-config.js'),
   name: 'dev'
-}
 ```
 
 The resulting configuration object would resemble:

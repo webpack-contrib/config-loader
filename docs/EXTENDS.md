@@ -16,7 +16,7 @@ configuration can also have an extends property.
 types, and a `filters` property, which contains an `Object` specifying filter
 rules.
 
-To demonstrate the concept, suppose we had the following simple setup:
+To demonstrate the concept, suppose we had the following bare-bones setup:
 
 ```js
 // base.config.js
@@ -51,8 +51,8 @@ Where `plugins` contains the plugins as defined in the `base.config.js` file.
 ## Multiple Extended Configurations
 
 There might be situations where we just want to get crazy and extend multiple
-base or nested configurations. In that situation, doing so is as simple as
-specifying them in the order they should be applied. For example:
+base or nested configurations. In that situation, users need only specify them
+in the order they should be applied. For example:
 
 ```js
 // webpack.config.js
