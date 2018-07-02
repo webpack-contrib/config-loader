@@ -50,6 +50,51 @@ loader(options).then((result) => {
 
 ```
 
+## Extending Configuration Files
+
+This module supports extending webpack configuration files with
+[ESLint-style](https://eslint.org/docs/user-guide/configuring#extending-configuration-files)
+`extends` functionality. This feature allows users to create a "base" config and
+in essence, "inherit" from that base config in a separate config. A simple
+example:
+
+```js
+// base.config.js
+module.exports = {
+  name: 'base',
+  mode: 'development',
+  plugins: [...]
+}
+```
+
+```js
+// webpack.config.js
+module.exports = {
+  extends: path.join(..., 'base-config.js'),
+  name: 'dev'
+}
+```
+
+The resulting configuration object would resemble:
+
+```js
+// result
+{
+  name: 'dev',
+  mode: 'development',
+  plugins: [...]
+}
+```
+
+The `webpack.config.js` file will be intelligently extended with properties from
+`base.config.js`.
+
+The `extends` property also supports naming installed NPM modules which export
+webpack configurations. Various configuration properties can also be filtered in
+different ways based on need.
+
+[Read More about Extending Configuration Files]('./docs/EXTENDS.md');
+
 ## Gotchas
 
 When using a configuration file that exports a `Function`, users of `webpack-cli`
