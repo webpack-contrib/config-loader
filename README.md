@@ -120,7 +120,7 @@ When using `extends` to extend a configuration which exists in a different packa
 
 By default, node does not search for modules through symlinks, and so you may experience errors such as this:
 
-`module not found: Error: Can't resolve 'webpack-hot-client/client`
+`module not found: Error: Can't resolve 'webpack-hot-client/client'`
 
 This can be fixed by using node's `--preserve-symlinks` flag which will allow you to develop cross-module without experiencing inconsistencies when comparing against a normal unlinked install:
 
