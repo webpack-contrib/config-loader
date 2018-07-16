@@ -96,7 +96,7 @@ different ways based on need.
 
 ## Gotchas
 
-### Function config parameters
+### Function-Config Parameters
 
 When using a configuration file that exports a `Function`, users of `webpack-cli`
 have become accustom to the function signature:
