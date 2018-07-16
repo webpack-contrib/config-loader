@@ -117,7 +117,7 @@ Applied to `plugins`.
 Rules:
 - `'default'` → no filtering. All plugins from every configuration are
 concatenated.
-- `'constructor'` → filtered buy the plugin `constructor.name` property, duplicates
+- `'constructor'` → filtered by the plugin `constructor.name` property, duplicates
 removed.
 
 ### `rules`
