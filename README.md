@@ -96,6 +96,8 @@ different ways based on need.
 
 ## Gotchas
 
+### Function-Config Parameters
+
 When using a configuration file that exports a `Function`, users of `webpack-cli`
 have become accustom to the function signature:
 
@@ -111,6 +113,28 @@ have long served the same purpose, and are easily accessible within a
 
 As such, `config-loader` does not call `Function` configs with the `env`
 parameter. Rather, it makes calls with only the `argv` parameter.
+
+### Extending Configuration Files in Symlinked Modules
+
+When using `extends` to extend a configuration which exists in a different package, care must be taken to ensure you don't hit module resolution issues if you are developing with these packages with symlinks (i.e. with `npm link` or `yarn link`).
+
+By default, Node.js does not search for modules through symlinks, and so you may experience errors such as:
+
+`module not found: Error: Can't resolve 'webpack-hot-client/client'`
+
+This can be fixed by using Node's `--preserve-symlinks` flag which will allow you to develop cross-module, without experiencing inconsistencies when comparing against a normal, non-linked install:
+
+For webpack-command:
+
+```console
+node --preserve-symlinks ./node_modules/.bin/wp
+```
+
+For webpack-serve:
+
+```console
+node --preserve-symlinks ./node_modules/.bin/webpack-serve
+```
 
 ## Supported Compilers
 
